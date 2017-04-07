@@ -1,0 +1,7 @@
+  public #FIELDTYPE# #GETFUNCTIONNAME#() {
+    return #FIELDNAME#;
+  }
+  
+  public void #SETFUNCTIONNAME#(#FIELDTYPE# #FIELDNAME#) {
+    this.#FIELDNAME# = #FIELDNAME#;
+  }

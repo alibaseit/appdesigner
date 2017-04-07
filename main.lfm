@@ -1,0 +1,116 @@
+object MainForm: TMainForm
+  Left = 212
+  Height = 556
+  Top = 105
+  Width = 976
+  BorderWidth = 6
+  Caption = 'MainForm'
+  ClientHeight = 536
+  ClientWidth = 976
+  Menu = MainMenu
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '1.6.2.0'
+  object PageControl1: TPageControl
+    Left = 6
+    Height = 524
+    Top = 6
+    Width = 964
+    ActivePage = EditorTab
+    Align = alClient
+    TabIndex = 2
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Project Settings'
+      ClientHeight = 496
+      ClientWidth = 956
+      object Panel1: TPanel
+        Left = 0
+        Height = 496
+        Top = 0
+        Width = 956
+        Align = alClient
+        ClientHeight = 496
+        ClientWidth = 956
+        TabOrder = 0
+        object DBEdit1: TDBEdit
+          Left = 104
+          Height = 23
+          Top = 8
+          Width = 600
+          DataField = 'name'
+          DataSource = MainDM.ProjectDS
+          Anchors = [akTop, akLeft, akRight]
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Label1: TLabel
+          Left = 26
+          Height = 15
+          Top = 16
+          Width = 72
+          Alignment = taRightJustify
+          Caption = 'Project Name'
+          ParentColor = False
+        end
+        object DBEdit2: TDBEdit
+          Left = 104
+          Height = 23
+          Top = 40
+          Width = 600
+          DataField = 'description'
+          DataSource = MainDM.ProjectDS
+          Anchors = [akTop, akLeft, akRight]
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object Label2: TLabel
+          Left = 38
+          Height = 15
+          Top = 48
+          Width = 60
+          Alignment = taRightJustify
+          Caption = 'Description'
+          ParentColor = False
+        end
+      end
+    end
+    object ModelTab: TTabSheet
+      Caption = 'Model'
+    end
+    object EditorTab: TTabSheet
+      Caption = 'EditorTab'
+    end
+  end
+  object MainMenu: TMainMenu
+    left = 1008
+    top = 48
+    object MenuItem1: TMenuItem
+      Caption = 'Project'
+      ShortCut = 16463
+    end
+  end
+  object ActionList: TActionList
+    left = 1000
+    top = 104
+    object OpenProjectAction: TAction
+      Caption = 'Open Project'
+      ShortCut = 16463
+    end
+    object SaveProjectAction: TAction
+      Caption = 'Save Project'
+      ShortCut = 16467
+    end
+    object QuitApplicationAction: TAction
+      Caption = 'Quit Application'
+    end
+    object AddModelAction: TAction
+      Caption = 'Add Model'
+    end
+    object AddAttributeAction: TAction
+      Caption = 'AddAttributeAction'
+    end
+  end
+end

@@ -1,0 +1,178 @@
+object MainDM: TMainDM
+  OldCreateOrder = False
+  Height = 442
+  HorizontalOffset = 392
+  VerticalOffset = 213
+  Width = 811
+  object ModelQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'type'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'projectid'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'description'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'tablename'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    AfterInsert = ModelQueryAfterInsert
+    AfterScroll = ModelQueryAfterScroll
+    Database = Connection
+    Transaction = Transaction
+    SQL.Strings = (
+      'select * from model'
+      ' where projectid = :id'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'id'
+        ParamType = ptInput
+      end>
+    left = 24
+    top = 184
+  end
+  object ModelDS: TDataSource
+    DataSet = ModelQuery
+    left = 24
+    top = 120
+  end
+  object AttributeQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'modelid'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'fieldname'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'fieldtype'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'description'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    AfterInsert = AttributeQueryAfterInsert
+    Database = Connection
+    Transaction = Transaction
+    SQL.Strings = (
+      'select * from attribute'
+      ' where modelid = :id'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'id'
+        ParamType = ptInput
+      end>
+    left = 192
+    top = 184
+  end
+  object AttributeDS: TDataSource
+    DataSet = AttributeQuery
+    left = 192
+    top = 120
+  end
+  object Connection: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'C:\Users\alido\Documents\prog\appdesigner\db\projects.sqlite'
+    KeepConnection = False
+    Transaction = Transaction
+    Options = []
+    left = 32
+    top = 16
+  end
+  object ProjectQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'description'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = Connection
+    Transaction = Transaction
+    SQL.Strings = (
+      '    select * from project'
+    )
+    Options = []
+    Params = <>
+    left = 216
+    top = 32
+  end
+  object Transaction: TSQLTransaction
+    Active = False
+    Database = Connection
+    Options = []
+    left = 112
+    top = 16
+  end
+  object ProjectDS: TDataSource
+    DataSet = ProjectQuery
+    left = 296
+    top = 32
+  end
+end

@@ -1,0 +1,17 @@
+package com.dogan.model
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+#MODEL_ANNOTATION#
+public class #MODELNAME# {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;	
+#MODEL_FIELDS#		
+}	
